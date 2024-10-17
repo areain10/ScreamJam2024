@@ -18,8 +18,8 @@ public class balancingInput : MonoBehaviour
     {
         mousedis = 0;
         rb = GetComponent<Rigidbody2D>();
-        startTimer = 3;
-        rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        startTimer = 2;
+        freeze(1);
     }
 
     // Update is called once per frame
@@ -31,12 +31,22 @@ public class balancingInput : MonoBehaviour
         }
         else
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            freeze(0);
             manageRotation();
         }
         //gameObject.transform.rotation = Quaternion.Euler(0, 0, Math.Clamp(gameObject.transform.rotation.z,-13,13));
     }
-
+    public void freeze(int i)
+    {
+        if(i == 0)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+    }
     void manageRotation()
     {
         mousedis += sens * Input.GetAxis("Mouse X");
