@@ -7,6 +7,12 @@ TagManager:
   - Window
   - ConversationWindow
   - Customers
+  - Delete
+  - Plate
+  - CustomerDialogue
+  - Tray
+  - Gamemanager
+  - Cutscene
   layers:
   - Default
   - TransparentFX

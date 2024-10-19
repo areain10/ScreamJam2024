@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7967222518148400099}
   m_Layer: 0
   m_Name: Plate
-  m_TagString: Untagged
+  m_TagString: Plate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d509d972bbbefd14b884051c47f9fd02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 21
+  name: Dead Dog
+  table: 2
+  customer: Mr Pivot
+  cusID: 207
+  diag:
+  - ...
+  - 
 --- !u!212 &2100252983240509835
 SpriteRenderer:
   m_ObjectHideFlags: 0

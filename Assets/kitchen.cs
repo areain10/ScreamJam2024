@@ -14,6 +14,8 @@ public class kitchen : MonoBehaviour
     List<List<List<string>>> menu;
     [SerializeField] GameObject platePrefab;
     [SerializeField] plateSpawner plateSpawner;
+    gameManager manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,7 @@ public class kitchen : MonoBehaviour
         interactable = false;
         hub = null;
         convWindow = GameObject.FindGameObjectWithTag("ConversationWindow");
+        manager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<gameManager>();
         convWindow.SetActive(false);
         
     }
@@ -39,13 +42,44 @@ public class kitchen : MonoBehaviour
         {
             if(hub.plates.Count == 0)
             {
+                manager.resetlife();
                 round++;
+                if (round == 2)
+                {
+                    StartCoroutine(manager.changeCourse(2));
+                }
                 Debug.Log("Interact");
                 hub.canMove(true);
                 convWindow.SetActive(true);
                 plateSpawner.spawnPlate(menu[round],round);
                 //hub.setPlates(menu[round]);
                 interactable = false;
+            }
+            else 
+            {
+                List<List<string>> tmp = new List<List<string>>();
+                bool active = true;
+                for (int i = 0; i < hub.plates.Count; i++)
+                {
+                    
+                    if (hub.plates[i].state == plateState.fallen)
+                    {
+                        
+                        for (int k = 0; k < menu[round].Count; k++)
+                        {
+                            //Debug.Log(menu[round][k][1] + " " + hub.plates[i].id);
+                            if (menu[round][k][1] == hub.plates[i].id)
+                            {
+                                tmp.Add(menu[round][k]);
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                convWindow.SetActive(true);
+                Debug.Log("Spawning " + tmp.Count + " plates");
+                plateSpawner.spawnPlate(tmp, round);
             }
             
 
@@ -80,7 +114,7 @@ public class kitchen : MonoBehaviour
         for (int i = 0; i < dataLines.Count; i++)
         {
             var data = dataLines[i].Split(',');
-            Debug.Log(data.Length);
+            
             string[] dia= { "", "" };
             tmp = data.ToList<string>();
             if (Convert.ToInt32(data[0]) != roundCounter)
@@ -89,11 +123,16 @@ public class kitchen : MonoBehaviour
                 menu.Add(new List<List<string>>());
             }
 
-            
+
             //var go = Instantiate(platePrefab, gameObject.transform.position, gameObject.transform.rotation);
             //go.GetComponent<plate>().setupPlate(data[1], data[2], data[3], data[4], data[5], dia);
             //platePrefab.GetComponent<plate>().setupPlate(data[1], data[2], data[3], data[4], data[5], dia);
-
+            string strTmp = "";
+            for (int j = 0; j < tmp.Count; j++)
+            {
+                strTmp += tmp[j].ToString() + " __ ";
+            }
+            //Debug.Log(strTmp);
             menu[roundCounter].Add(tmp);
             //go.SetActive(false);
 

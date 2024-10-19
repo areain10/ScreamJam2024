@@ -13,6 +13,8 @@ public class balancingInput : MonoBehaviour
     private float mousedis;
     private float mouseup;
     float startTimer;
+    float angle;
+    bool moveable;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,20 +22,32 @@ public class balancingInput : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         startTimer = 2;
         freeze(1);
+        StartCoroutine(startingDelay());
     }
+    IEnumerator startingDelay()
+    {
+        moveable = false;
+        
+        yield return new WaitForSeconds(startTimer);
+        moveable = true;
 
+    }
     // Update is called once per frame
     void Update()
     {
-        if(startTimer > 0)
-        {
-            startTimer -= Time.deltaTime;
-        }
-        else
+        
+        if (moveable)
         {
             freeze(0);
             manageRotation();
         }
+        else
+        {
+            freeze(1);
+        }
+            
+            
+      
         //gameObject.transform.rotation = Quaternion.Euler(0, 0, Math.Clamp(gameObject.transform.rotation.z,-13,13));
     }
     public void freeze(int i)
@@ -61,5 +75,14 @@ public class balancingInput : MonoBehaviour
         {
             rb.angularVelocity = -maxAngularVelocity;
         }
+
+        angle = gameObject.transform.eulerAngles.z;
+        
+        
+    }
+    public void resetRot(bool move)
+    {
+        moveable = move;
+        gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }

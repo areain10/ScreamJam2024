@@ -1,4 +1,18 @@
 Round,PlateID,Plate Name,Table,Customer Name,CustomerID,Customer Dialogue,Player Response
-1,11,Eye Soup,3,Red The Imp,302,"Finally, took you long enough!",Uggh this looks disgusting
-1,12,Foot Juice,1,Gorgort,104,Yes this is delicious,You're welcome?
-2,21,Dead Dog,2,Mr Pivot,207,...,...
+1,11,Eye Soup,3,Red The Imp,302,Finally; took you long enough!,Uggh this looks disgusting
+2,21,Foot Juice,1,Gorgort,104,Yes this is delicious,You're welcome?
+3,31,Dead Dog,2,Mr Pivot,203,...,...
+4,41,Guilty Goulash,1,Morgath the Cruel,102,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
+5,51,Sorrowful Sashimi,3,Lady Sinclaw,301,They taste of all the things you never did for them.,I never thought… how can this be real?
+6,61,Judgmental Jello,1,Gnash the Fanged,104,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
+6,62,Regret Risotto,1,Writh the Tormented,105,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
+7,71,Conflicted Cannoli,2,Drathor the Devourer,201,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
+7,72,Spiteful Spaghetti,2,Velka the Hollow,202,Slippery like your false promises.,Is this… from someone I… hurt?
+8,81,Prideful Pudding,3,Slogg the Miserable,303,It’s so thick; just like your arrogance.,"Wait, my… arrogance? What’s going on here?"
+8,82,Anguish Apple Pie,1,Zenthrax the Whisperer,101,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"
+9,91,Guilt Gravy,1,Lilith the Unforgiven,102,Ahh; the cold comfort of your guilt.,Guilt? Why is everything about… me?
+9,92,Judgmental Jambalaya,2,Blight the Withered,201,Your judgments were sharp; but this burn is sharper.,What… are you talking about? What judgments?
+9,93,Wasted Potential Wings,3,Ognar the Betrayed,302,Charred; like the futures you ruined.,I never meant for anyone to fail… how could this be?
+10,101,Envy Eclairs,3,Skarn the Deceiver,304,So sweet; yet so bitter; like watching you rise while I fell.,I never wanted anyone to… I didn’t realize…
+10,102,Lament Lasagna,1,Azara the Forsaken,103,Every bite reminds me of what you didn’t say.,I didn’t know… I didn’t think it mattered.
+10,103,Deceitful Dumplings,2,Vesper the Bitter,202,Ahh; another lie revealed. Delicious!,Lies? I… I didn’t think they’d matter this much…
