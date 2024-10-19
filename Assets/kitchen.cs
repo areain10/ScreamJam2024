@@ -19,7 +19,7 @@ public class kitchen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        round = 5;
+        round = -1;
         menu = new List<List<List<String>>>();
         readMenu();
         interactable = false;
@@ -62,16 +62,16 @@ public class kitchen : MonoBehaviour
         }*/
         switch (round)
         {
-            case 2:
-                StartCoroutine(manager.changeCourse(2));
+            case 1:
+                StartCoroutine(manager.changeCourse(2,10));
                 yield return new WaitForSeconds(5);
                 break;
             case 5:
-                StartCoroutine(manager.changeCourse(3));
+                StartCoroutine(manager.changeCourse(3,5));
                 yield return new WaitForSeconds(5);
                 break;
             case 8:
-                StartCoroutine(manager.changeCourse(4));
+                StartCoroutine(manager.changeCourse(4, 5));
                 yield return new WaitForSeconds(5);
                 break;
             case 20:

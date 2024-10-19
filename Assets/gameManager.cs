@@ -58,10 +58,10 @@ public class gameManager : MonoBehaviour
         //ChangeScene
     }
 
-    public IEnumerator changeCourse(int nextCourse)
+    public IEnumerator changeCourse(int nextCourse, float duration)
     {
         currentCourse = nextCourse;
-        StartCoroutine(cut.changeArt(currentCourse-1));
+        StartCoroutine(cut.changeArt(currentCourse-1,duration));
         audios.clip = soundtrack[currentCourse - 1];
         audios.Play(0);
 
