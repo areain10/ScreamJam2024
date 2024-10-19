@@ -38,7 +38,7 @@ public class customer : MonoBehaviour
             checkForPlate();
         }
     }
-    void checkForPlate()
+    bool checkForPlate()
     {
         if(hub != null)
         {
@@ -47,14 +47,17 @@ public class customer : MonoBehaviour
                 Debug.Log(hub.plates[i].cusID + ' '+ customerID);
                 if(hub.plates[i].cusID == customerID)
                 {
-                    Debug.Log(hub.plates[i].diag[0]);
-                    plate currentplate = hub.plates[i];
+                    Debug.Log(hub.plates[i].name + ' '+ hub.plates[i].cusID+' '+ hub.plates[i].diag[0]);
+                    
+                    StartCoroutine(Deliver(hub.plates[i]));
                     hub.plates[i].delivered();
                     hub.plates.RemoveAt(i);
-                    StartCoroutine(Deliver(currentplate));
+                    return true;
+                    
                 }
             }
         }
+        return false;
     }
    
     IEnumerator Deliver(plate i)

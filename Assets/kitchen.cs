@@ -19,11 +19,11 @@ public class kitchen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        round = -1;
+        round = 5;
         menu = new List<List<List<String>>>();
         readMenu();
         interactable = false;
-        hub = null;
+        hub = GameObject.FindGameObjectWithTag("Player").GetComponent<playerHub>();
         convWindow = GameObject.FindGameObjectWithTag("ConversationWindow");
         manager = GameObject.FindGameObjectWithTag("Gamemanager").GetComponent<gameManager>();
         convWindow.SetActive(false);
@@ -36,24 +36,65 @@ public class kitchen : MonoBehaviour
             checkForInteract();
         }
     }
+    IEnumerator spawnPlate()
+    {
+        manager.resetlife();
+        round++;
+        /*switch (round)
+        {
+            case 4:
+                StartCoroutine(manager.changeCourse(2));
+                yield return new WaitForSeconds(5);
+                break;
+            case 10:
+                StartCoroutine(manager.changeCourse(3));
+                yield return new WaitForSeconds(5);
+                break;
+            case 15:
+                StartCoroutine(manager.changeCourse(4));
+                yield return new WaitForSeconds(5);
+                break;
+            case 20:
+                //end game
+                break;
+            
+
+        }*/
+        switch (round)
+        {
+            case 2:
+                StartCoroutine(manager.changeCourse(2));
+                yield return new WaitForSeconds(5);
+                break;
+            case 5:
+                StartCoroutine(manager.changeCourse(3));
+                yield return new WaitForSeconds(5);
+                break;
+            case 8:
+                StartCoroutine(manager.changeCourse(4));
+                yield return new WaitForSeconds(5);
+                break;
+            case 20:
+                //end game
+                break;
+
+
+        }
+        Debug.Log("Interact");
+        hub.canMove(true);
+        convWindow.SetActive(true);
+        plateSpawner.spawnPlate(menu[round], round);
+        //hub.setPlates(menu[round]);
+        interactable = false;
+        yield return null;
+    }
     void checkForInteract()
     {
         if (Input.GetKeyUp(KeyCode.E))
         {
             if(hub.plates.Count == 0)
             {
-                manager.resetlife();
-                round++;
-                if (round == 2)
-                {
-                    StartCoroutine(manager.changeCourse(2));
-                }
-                Debug.Log("Interact");
-                hub.canMove(true);
-                convWindow.SetActive(true);
-                plateSpawner.spawnPlate(menu[round],round);
-                //hub.setPlates(menu[round]);
-                interactable = false;
+               StartCoroutine(spawnPlate());
             }
             else 
             {
@@ -87,7 +128,7 @@ public class kitchen : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player" && hub == null)
+        if(collision.gameObject.tag == "Player" )
         {
             hub = collision.gameObject.GetComponent<playerHub>();
             interactable = true;
@@ -97,8 +138,12 @@ public class kitchen : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            convWindow.SetActive(false);
-            hub = null;
+            if(convWindow != null)
+            {
+                convWindow.SetActive(false);
+            }
+            
+            //hub = null;
             interactable = false;
         }
     }
@@ -132,7 +177,7 @@ public class kitchen : MonoBehaviour
             {
                 strTmp += tmp[j].ToString() + " __ ";
             }
-            //Debug.Log(strTmp);
+            Debug.Log(strTmp);
             menu[roundCounter].Add(tmp);
             //go.SetActive(false);
 

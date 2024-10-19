@@ -9,6 +9,8 @@ public class gameManager : MonoBehaviour
 {
     [SerializeField] int maxRoundLife;
     [SerializeField] TextMeshProUGUI livesCounter;
+    [SerializeField] AudioClip[] soundtrack;
+    AudioSource audios;
     cutscene cut;
     int currentCourse;
     int roundLife;
@@ -16,7 +18,11 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentCourse = 1;
         cut = GameObject.FindGameObjectWithTag("Cutscene").GetComponent<cutscene>();
+        audios = GetComponent<AudioSource>();
+        audios.clip = soundtrack[currentCourse - 1];
+        audios.Play(0);
         resetlife();
         updateLiveCounter();
     }
@@ -56,7 +62,10 @@ public class gameManager : MonoBehaviour
     {
         currentCourse = nextCourse;
         StartCoroutine(cut.changeArt(currentCourse-1));
-        yield return new WaitForSeconds(1f);
+        audios.clip = soundtrack[currentCourse - 1];
+        audios.Play(0);
+
+        yield return new WaitForSeconds(5f);
     }
     void updateLiveCounter()
     {
