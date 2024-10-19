@@ -62,10 +62,40 @@ public class gameManager : MonoBehaviour
     {
         currentCourse = nextCourse;
         StartCoroutine(cut.changeArt(currentCourse-1,duration));
+        switch (nextCourse)
+        {
+            case 2:
+                setupMain();
+                
+                break;
+            case 3:
+                GetComponentInChildren<batspawner>().killBats();
+                setupDessert();
+                break;
+            case 4:
+                setupAfterHours();
+                break;
+
+        }
         audios.clip = soundtrack[currentCourse - 1];
         audios.Play(0);
-
+        
         yield return new WaitForSeconds(5f);
+        
+    }
+    public void setupMain()
+    {
+        GetComponentInChildren<batspawner>().spawnBats(3);
+    }
+    public void setupDessert()
+    {
+        GetComponentInChildren<batspawner>().killBats();
+        GetComponentInChildren<batspawner>().spawnBats(1);
+    }
+    public void setupAfterHours()
+    {
+        GetComponentInChildren<batspawner>().killBats();
+        GetComponentInChildren<batspawner>().spawnBats(4);
     }
     void updateLiveCounter()
     {

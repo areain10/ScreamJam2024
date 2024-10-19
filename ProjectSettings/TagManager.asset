@@ -13,6 +13,7 @@ TagManager:
   - Tray
   - Gamemanager
   - Cutscene
+  - Background
   layers:
   - Default
   - TransparentFX

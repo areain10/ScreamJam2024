@@ -30,4 +30,8 @@ public class playerHub : MonoBehaviour
         }
         
     }
+    public void shakeTray(float power,float duration)
+    {
+        StartCoroutine(balIn.shake(power,duration));
+    }
 }

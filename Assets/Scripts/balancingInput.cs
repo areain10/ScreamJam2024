@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Unity.Mathematics;
 
 public class balancingInput : MonoBehaviour
 {
@@ -78,6 +79,30 @@ public class balancingInput : MonoBehaviour
 
         angle = gameObject.transform.eulerAngles.z;
         
+        
+    }
+    public IEnumerator shake(float power,float duration)
+    {
+        float elapsedTim = 0f;
+        float timeBetween = 0f;
+        while(elapsedTim < duration)
+        {
+            if (timeBetween > 0.04f)
+            {
+                float zOffset = UnityEngine.Random.Range(-0.5f, 0.5f) * power;
+
+                //rb.AddTorque(UnityEngine.Random.Range(-power, power));
+                //transform.localRotation = Quaternion.Euler(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z + zOffset);
+                rb.angularVelocity = UnityEngine.Random.Range(-power, power);
+                timeBetween = 0f;
+            }
+            
+            
+            elapsedTim += Time.deltaTime;
+            timeBetween += Time.deltaTime;
+            yield return null;
+            
+        }
         
     }
     public void resetRot(bool move)
