@@ -9,29 +9,56 @@ public class mainMenu : MonoBehaviour
     [SerializeField] GameObject buttons;
     [SerializeField] GameObject options;
     AudioSource[] audioSources;
-
+    options option;
     private void Awake()
     {
         options.SetActive(false);
         buttons.SetActive(true);
         DontDestroyOnLoad(this);
-        
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
+
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        audioSources = GameObject.FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+        float i = options.GetComponentInChildren<Slider>().value;
+        for (int j = 0; j < audioSources.Length; j++)
+        {
+            audioSources[j].volume = i;
+        }
     }
     public void Options()
     {
         options.SetActive(true);
-        buttons.SetActive(false);
+        try
+        {
+            buttons.SetActive(false);
+        }
+        catch
+        {
+
+        }
     }
     public void exitOptions()
     {
         options.SetActive(false);
-        buttons.SetActive(true);
+        try
+        {
+            buttons.SetActive(true);
+        }
+        catch
+        {
+
+        }
+        
     }
     private void Start()
     {
+        option = FindFirstObjectByType<options>();
         
         audioSources = GameObject.FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
+
     }
     public void setVolume()
     {
@@ -49,5 +76,13 @@ public class mainMenu : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Escape)) 
+        {
+            options.SetActive(true);
+        }
+    }
+
 }

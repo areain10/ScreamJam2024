@@ -8,7 +8,7 @@ public class options : MonoBehaviour
     mainMenu menu;
     void Start()
     {
-        menu = GameObject.Find
+        menu = GameObject.FindFirstObjectByType<mainMenu>();
         DontDestroyOnLoad(this);
     }
 
