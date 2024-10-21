@@ -50,12 +50,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   velocidadMax: 1
-  shake: 100
+  shake: 10000
   shakeDuration: 1
-  xMax: 9
-  zMax: 11
-  xMin: -13
-  zMin: -12
+  delay: 0.4
+  xMax: 16
+  zMax: 10
+  xMin: -15
+  zMin: -9
 --- !u!212 &8667238954507572184
 SpriteRenderer:
   m_ObjectHideFlags: 0

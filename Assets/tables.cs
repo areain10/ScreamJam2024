@@ -31,7 +31,16 @@ public class tables : MonoBehaviour
         {
             spawnLocations.Add(gameObject.transform.GetChild(0).transform.GetChild(i).gameObject);
             var go = Instantiate(customerPrefab, spawnLocations[i].transform.position, spawnLocations[i].transform.rotation);
-            go.GetComponent<customer>().customerID = customerIDs[i];
+            //if(go != null && customerIDs[i] != null) { go.GetComponent<customer>().customerID = customerIDs[i]; } else { go.GetComponent<customer>().customerID = "000"; }
+            try
+            {
+                go.GetComponent<customer>().customerID = customerIDs[i];
+            }
+            catch
+            {
+                go.GetComponent<customer>().customerID = "000";
+            }
+            
         }
     }
 }

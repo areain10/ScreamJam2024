@@ -57,6 +57,11 @@ public class gameManager : MonoBehaviour
         SceneManager.LoadScene(2);
         //ChangeScene
     }
+    public IEnumerator gameCompleted()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(3);
+    }
 
     public IEnumerator changeCourse(int nextCourse, float duration)
     {
@@ -85,7 +90,7 @@ public class gameManager : MonoBehaviour
     }
     public void setupMain()
     {
-        GetComponentInChildren<batspawner>().spawnBats(3);
+        GetComponentInChildren<batspawner>().spawnBats(6);
     }
     public void setupDessert()
     {

@@ -66,15 +66,16 @@ public class kitchen : MonoBehaviour
                 StartCoroutine(manager.changeCourse(2,10));
                 yield return new WaitForSeconds(5);
                 break;
-            case 5:
+            case 2:
                 StartCoroutine(manager.changeCourse(3,5));
                 yield return new WaitForSeconds(5);
                 break;
-            case 8:
+            case 3:
                 StartCoroutine(manager.changeCourse(4, 5));
                 yield return new WaitForSeconds(5);
                 break;
-            case 20:
+            case 4:
+                StartCoroutine(manager.gameCompleted());
                 //end game
                 break;
 
@@ -92,6 +93,7 @@ public class kitchen : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.E))
         {
+            GetComponent<AudioSource>().Play();
             if(hub.plates.Count == 0)
             {
                StartCoroutine(spawnPlate());

@@ -32,7 +32,7 @@ public class plateSpawner : MonoBehaviour
             dia[0] = data[i][6];
             dia[1] = data[i][7];
             Debug.Log(i + ' ' + dia[0] + ' ' + dia[1]);
-            var go = Instantiate(platePrefab, new Vector2(gameObject.transform.position.x + Random.Range(-2f, 2f), gameObject.transform.position.y - 3), gameObject.transform.rotation);
+            var go = Instantiate(platePrefab, new Vector3(gameObject.transform.position.x + Random.Range(-2f, 2f), gameObject.transform.position.y - 3, -8.8f), gameObject.transform.rotation);
             go.GetComponent<plate>().setupPlate(data[i][1], data[i][2], data[i][3], data[i][4], data[i][5], dia);
             hub.plates.Add(go.GetComponent<plate>());
             kitchDia = "";

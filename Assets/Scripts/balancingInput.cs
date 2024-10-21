@@ -81,19 +81,22 @@ public class balancingInput : MonoBehaviour
         
         
     }
-    public IEnumerator shake(float power,float duration)
+    public IEnumerator shake(float power,float duration, float delay)
     {
         float elapsedTim = 0f;
         float timeBetween = 0f;
         while(elapsedTim < duration)
         {
-            if (timeBetween > 0.04f)
+            if (timeBetween > delay)
             {
                 float zOffset = UnityEngine.Random.Range(-0.5f, 0.5f) * power;
 
                 //rb.AddTorque(UnityEngine.Random.Range(-power, power));
                 //transform.localRotation = Quaternion.Euler(transform.localRotation.x, transform.localRotation.y, transform.localRotation.z + zOffset);
-                rb.angularVelocity = UnityEngine.Random.Range(-power, power);
+                float pow = UnityEngine.Random.Range(power / 2, power);
+                
+                //rb.angularVelocity = UnityEngine.Random.Range(-power, power);
+                rb.AddTorque(UnityEngine.Random.Range(-power, power));
                 timeBetween = 0f;
             }
             
@@ -109,5 +112,17 @@ public class balancingInput : MonoBehaviour
     {
         moveable = move;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    public IEnumerator reverseIn(float duration)
+    {
+        if(sens > 0)
+        {
+            sens *= -1;
+            yield return new WaitForSeconds(duration);
+            sens *= -1;
+        }
+        
+
     }
 }

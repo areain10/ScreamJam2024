@@ -9,6 +9,7 @@ public class mainMenu : MonoBehaviour
     [SerializeField] GameObject buttons;
     [SerializeField] GameObject options;
     AudioSource[] audioSources;
+    List<float> volumes;
     options option;
     private void Awake()
     {
@@ -23,9 +24,11 @@ public class mainMenu : MonoBehaviour
     {
         audioSources = GameObject.FindObjectsByType<AudioSource>(FindObjectsSortMode.None);
         float i = options.GetComponentInChildren<Slider>().value;
+        volumes = new List<float>();
         for (int j = 0; j < audioSources.Length; j++)
         {
-            audioSources[j].volume = i;
+            volumes.Add(audioSources[j].volume);
+            audioSources[j].volume = volumes[j]*i ;
         }
     }
     public void Options()
@@ -65,7 +68,7 @@ public class mainMenu : MonoBehaviour
         float i = options.GetComponentInChildren<Slider>().value;
         for (int j=0; j < audioSources.Length; j++)
         {
-            audioSources[j].volume = i;
+            audioSources[j].volume = volumes[j] * i;
         }
     }
     public void clickedPlay()

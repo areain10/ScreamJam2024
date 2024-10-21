@@ -11,6 +11,7 @@ public class bat : MonoBehaviour
     public float velocidadMax;
     public float shake;
     public float shakeDuration;
+    public float delay;
 
     public float xMax;
     public float zMax;
@@ -47,7 +48,7 @@ public class bat : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Debug.Log("Shake");
-            collision.gameObject.GetComponent<playerHub>().shakeTray(shake,shakeDuration);
+            collision.gameObject.GetComponent<playerHub>().shakeTray(shake,shakeDuration,delay);
         }
         
     }
