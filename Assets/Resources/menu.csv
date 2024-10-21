@@ -1,18 +1,40 @@
 Round,PlateID,Plate Name,Table,Customer Name,CustomerID,Customer Dialogue,Player Response
-1,11,Eye Soup,3,Red The Imp,302,Finally; took you long enough!,Uggh this looks disgusting
-2,21,Foot Juice,1,Gorgort,104,Yes this is delicious,You're welcome?
-3,31,Dead Dog,2,Mr Pivot,203,...,...
-4,41,Guilty Goulash,1,Morgath the Cruel,102,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
-5,51,Sorrowful Sashimi,3,Lady Sinclaw,301,They taste of all the things you never did for them.,I never thought… how can this be real?
-6,61,Judgmental Jello,1,Gnash the Fanged,104,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
-6,62,Regret Risotto,1,Writh the Tormented,105,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
-7,71,Conflicted Cannoli,2,Drathor the Devourer,201,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
-7,72,Spiteful Spaghetti,2,Velka the Hollow,202,Slippery like your false promises.,Is this… from someone I… hurt?
-8,81,Prideful Pudding,3,Slogg the Miserable,303,It’s so thick; just like your arrogance.,"Wait, my… arrogance? What’s going on here?"
-8,82,Anguish Apple Pie,1,Zenthrax the Whisperer,101,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"
-9,91,Guilt Gravy,1,Lilith the Unforgiven,102,Ahh; the cold comfort of your guilt.,Guilt? Why is everything about… me?
-9,92,Judgmental Jambalaya,2,Blight the Withered,201,Your judgments were sharp; but this burn is sharper.,What… are you talking about? What judgments?
-9,93,Wasted Potential Wings,3,Ognar the Betrayed,302,Charred; like the futures you ruined.,I never meant for anyone to fail… how could this be?
-10,101,Envy Eclairs,3,Skarn the Deceiver,304,So sweet; yet so bitter; like watching you rise while I fell.,I never wanted anyone to… I didn’t realize…
-10,102,Lament Lasagna,1,Azara the Forsaken,103,Every bite reminds me of what you didn’t say.,I didn’t know… I didn’t think it mattered.
-10,103,Deceitful Dumplings,2,Vesper the Bitter,202,Ahh; another lie revealed. Delicious!,Lies? I… I didn’t think they’d matter this much…
+1,11,ap1,3,Red The Imp,303,Finally; took you long enough!,Uggh this looks disgusting
+2,12,ap2,7,Gorgort,702,Yes this is delicious,You're welcome?
+3,13,ap3,8,Mr Pivot,802,...,...
+4,11,ap1,1,Morgath the Cruel,102,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
+4,11,ap1,4,Lady Sinclaw,402,They taste of all the things you never did for them.,I never thought… how can this be real?
+5,12,ap2,5,Gnash the Fanged,501,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
+5,13,ap3,2,Writh the Tormented,202,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
+6,21,main1,6,Drathor the Devourer,603,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
+7,22,main2,5,Velka the Hollow,501,Slippery like your false promises.,Is this… from someone I… hurt?
+8,23,main3,5,Slogg the Miserable,503,It’s so thick; just like your arrogance.,"Wait, my… arrogance? What’s going on here?"
+8,21,main1,3,Zenthrax the Whisperer,303,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"
+9,22,main2,7,Lilith the Unforgiven,701,Ahh; the cold comfort of your guilt.,Guilt? Why is everything about… me?
+9,22,main2,1,Blight the Withered,103,Your judgments were sharp; but this burn is sharper.,What… are you talking about? What judgments?
+9,23,main3,2,Ognar the Betrayed,201,Charred; like the futures you ruined.,I never meant for anyone to fail… how could this be?
+10,21,main1,5,Skarn the Deceiver,502,So sweet; yet so bitter; like watching you rise while I fell.,I never wanted anyone to… I didn’t realize…
+10,22,main2,3,Azara the Forsaken,303,Every bite reminds me of what you didn’t say.,I didn’t know… I didn’t think it mattered.
+10,23,main3,4,Vesper the Bitter,403,Ahh; another lie revealed. Delicious!,Lies? I… I didn’t think they’d matter this much…
+10,22,main2,3,Writh the Tormented,303,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
+11,31,dess1,7,Drathor the Devourer,701,They taste of all the things you never did for them.,I never thought… how can this be real?
+12,32,dess2,3,Velka the Hollow,301,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
+13,33,dess3,8,Slogg the Miserable,801,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
+14,32,dess2,4,Zenthrax the Whisperer,401,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
+15,31,dess1,6,Lilith the Unforgiven,601,Slippery like your false promises.,Is this… from someone I… hurt?
+15,33,dess3,6,Blight the Withered,601,It’s so thick; just like your arrogance.,"Wait, my… arrogance? What’s going on here?"
+16,41,ah1,6,Ognar the Betrayed,603,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"
+16,42,ah2,8,Skarn the Deceiver,801,Ahh; the cold comfort of your guilt.,Guilt? Why is everything about… me?
+17,43,ah3,7,Azara the Forsaken,702,Your judgments were sharp; but this burn is sharper.,What… are you talking about? What judgments?
+17,43,ah3,3,Vesper the Bitter,303,Charred; like the futures you ruined.,I never meant for anyone to fail… how could this be?
+18,42,ah2,1,Writh the Tormented,103,So sweet; yet so bitter; like watching you rise while I fell.,I never wanted anyone to… I didn’t realize…
+18,43,ah3,5,Drathor the Devourer,501,Every bite reminds me of what you didn’t say.,I didn’t know… I didn’t think it mattered.
+18,41,ah1,4,Velka the Hollow,402,Ahh; another lie revealed. Delicious!,Lies? I… I didn’t think they’d matter this much…
+18,41,ah1,5,Slogg the Miserable,502,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
+19,43,ah3,2,Zenthrax the Whisperer,201,They taste of all the things you never did for them.,I never thought… how can this be real?
+19,42,ah2,7,Lilith the Unforgiven,701,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
+20,41,ah1,8,Blight the Withered,802,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
+20,41,ah1,3,Ognar the Betrayed,303,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
+20,43,ah3,5,Skarn the Deceiver,503,Slippery like your false promises.,Is this… from someone I… hurt?
+20,42,ah2,4,Azara the Forsaken,401,It’s so thick; just like your arrogance.,"Wait, my… arrogance? What’s going on here?"
+20,42,ah2,4,Vesper the Bitter,403,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"

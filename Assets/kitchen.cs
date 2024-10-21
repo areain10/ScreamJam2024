@@ -62,19 +62,19 @@ public class kitchen : MonoBehaviour
         }*/
         switch (round)
         {
-            case 1:
+            case 5:
                 StartCoroutine(manager.changeCourse(2,10));
                 yield return new WaitForSeconds(5);
                 break;
-            case 2:
+            case 10:
                 StartCoroutine(manager.changeCourse(3,5));
                 yield return new WaitForSeconds(5);
                 break;
-            case 3:
+            case 15:
                 StartCoroutine(manager.changeCourse(4, 5));
                 yield return new WaitForSeconds(5);
                 break;
-            case 4:
+            case 20:
                 StartCoroutine(manager.gameCompleted());
                 //end game
                 break;
