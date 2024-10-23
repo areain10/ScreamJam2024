@@ -6,18 +6,20 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 public enum ghoulState { spawning,despawning,normal,invisible}
 public class ghoul : MonoBehaviour
 {
-    ghoulState state;
+    public ghoulState state;
     GameObject player;
     [SerializeField] float speed;
     [SerializeField] float timeInvis;
     [SerializeField] float timeNormal;
+    Transform playerTrans;
     float elapsedTime;
     // Start is called before the first frame update
     void Start()
     {
-        elapsedTime = 0f;
+        elapsedTime = Random.Range(0f,timeNormal);
         player = GameObject.FindGameObjectWithTag("Player");
-        state = ghoulState.normal;
+        playerTrans = player.transform;
+        //state = ghoulState.normal;
     }
 
     // Update is called once per frame
@@ -93,9 +95,17 @@ public class ghoul : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
             }
             state = ghoulState.invisible;
+            
         }
         else
         {
+            int num;
+            num = Random.Range(0, 2);
+            if (num == 0)
+            {
+                num = -1;
+            }
+            gameObject.transform.position = new Vector2(playerTrans.position.x + (Random.Range(2f, 4f) * num), playerTrans.position.y + (Random.Range(2.5f, 5f) * num));
             float a = GetComponent<SpriteRenderer>().color.a;
             Color tmp = GetComponent<SpriteRenderer>().color;
             while (GetComponent<SpriteRenderer>().color.a < 1)

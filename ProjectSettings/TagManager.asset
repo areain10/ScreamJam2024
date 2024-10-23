@@ -14,6 +14,9 @@ TagManager:
   - Gamemanager
   - Cutscene
   - Background
+  - TableManager
+  - Kitchen
+  - DemonSprite
   layers:
   - Default
   - TransparentFX

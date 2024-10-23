@@ -30,26 +30,26 @@ public class playerAnimation : MonoBehaviour
         switch (state)
         {
             case playerAnimStates.idle:
-                GetComponent<SpriteRenderer>().sprite = walkingSprite[1];
+                GetComponent<SpriteRenderer>().sprite = walkingSprite[2];
                 elapsedTime = 0f; break;
             case playerAnimStates.walking:
                 if(elapsedTime > delay)
                 {
                     GetComponent<SpriteRenderer>().sprite = walkingSprite[currentSprite];
-                    currentSprite = (currentSprite + 1) % 3;
+                    currentSprite = (currentSprite + 1) % 2;
                     elapsedTime = 0;
                     
                 }
 
                 break;
             case playerAnimStates.trayidle:
-                GetComponent<SpriteRenderer>().sprite = traySprites[1];
+                GetComponent<SpriteRenderer>().sprite = traySprites[2];
                 elapsedTime = 0f; break;
             case playerAnimStates.traywalking:
                 if (elapsedTime > delay)
                 {
                     GetComponent<SpriteRenderer>().sprite = traySprites[currentSprite];
-                    currentSprite = (currentSprite + 1) % 3;
+                    currentSprite = (currentSprite + 1) % 2;
                     elapsedTime = 0;
 
                 }

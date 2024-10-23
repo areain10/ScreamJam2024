@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class customer : MonoBehaviour
@@ -10,33 +11,66 @@ public class customer : MonoBehaviour
     [SerializeField] public string customerID;
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI dialogue;
-    Image devilSprite;
+    [SerializeField] float idleanimDelay;
+    int currentSprite;
+    float elapsedTime;
+    public List<Sprite> sprites;
     Canvas customerDia;
     public string customerName;
     bool canInteract;
     playerHub hub;
+    public Sprite demonSprite;
+    public UnityEngine.UI.Image demonImage;
 
     // Start is called before the first frame update
     void Start()
     {
+        //demonSprite = null;
+        currentSprite = 0;
+        elapsedTime = 0f;
         nameText.text = customerID;
         customerDia = GameObject.FindGameObjectWithTag("CustomerDialogue").GetComponent<Canvas>();
         dialogue = customerDia.GetComponentInChildren<TextMeshProUGUI>();
         customerDia.sortingOrder = -2;
         //devilSprite = customerDia.GetComponentInChildren<devilSprite>().gameObject.GetComponent<Image>();
         //devilSprite.gameObject.SetActive(false);
+        demonImage = GameObject.FindGameObjectWithTag("DemonSprite").GetComponent<UnityEngine.UI.Image>();
 
 
     }
-
+    public void setSprite(List<Sprite> sprite)
+    {
+        
+        sprites = sprite;
+        GetComponentInChildren<SpriteRenderer>().sprite = sprites[currentSprite];
+    }
+    public void setPortrait(Sprite por)
+    {
+        demonSprite = por;
+        //Debug.Log(por.name + " " + demonImage.sprite.name);
+    }
     // Update is called once per frame
     void Update()
     {
+        if(sprites.Count > 1) 
+        {
+            animationIdle();
+        }
         
         if (canInteract && Input.GetKeyUp(KeyCode.E))
         {
             checkForPlate();
         }
+    }
+    void animationIdle()
+    {
+        if(elapsedTime > idleanimDelay)
+        {
+            currentSprite = (currentSprite + 1) % sprites.Count;
+            GetComponentInChildren<SpriteRenderer>().sprite = sprites[currentSprite];
+            elapsedTime = 0f;
+        }
+        elapsedTime += Time.deltaTime;
     }
     bool checkForPlate()
     {
@@ -45,7 +79,7 @@ public class customer : MonoBehaviour
             for(int i = 0;i < hub.plates.Count;i++)
             {
                 Debug.Log(hub.plates[i].cusID + ' '+ customerID);
-                if(hub.plates[i].cusID == customerID)
+                if(hub.plates[i].cusID == customerID && hub.plates[i].state != plateState.fallen)
                 {
                     Debug.Log(hub.plates[i].name + ' '+ hub.plates[i].cusID+' '+ hub.plates[i].diag[0]);
                     
@@ -62,10 +96,13 @@ public class customer : MonoBehaviour
    
     IEnumerator Deliver(plate i)
     {
+        demonImage = GameObject.FindGameObjectWithTag("DemonSprite").GetComponent<UnityEngine.UI.Image>();
+        demonImage.overrideSprite = demonSprite;
         
         customerDia.sortingOrder = 1;
         dialogue.color = Color.red;
         hub.resetPos(false);
+        hub.trayDissapear(false);
         //devilSprite.gameObject.SetActive(true);
         hub.canMove(false);
         
@@ -89,6 +126,7 @@ public class customer : MonoBehaviour
         customerDia.sortingOrder = -2;
         //devilSprite.gameObject.SetActive(false);
         hub.resetPos(true);
+        hub.trayDissapear(true);
         yield return null;
     }
     IEnumerator Typewriter(string text, TextMeshProUGUI tmp)

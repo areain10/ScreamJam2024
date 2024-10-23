@@ -11,16 +11,18 @@ public class cutscene : MonoBehaviour
     void Start()
     {
         im = GetComponentInChildren<Image>();
-        im.color = new Color(255, 255, 255, 0);
+        GetComponentInChildren<Image>().color = new Color(255, 255, 255, 0);
     }
     public IEnumerator changeArt(int artId,float duration)
     {
-        im.sprite = art[artId];
-        StartCoroutine(SpriteFade(im,255,duration/3));
+        Debug.Log(artId);
+        try { im.sprite = art[artId]; }
+        catch { GetComponentInChildren<Image>().sprite = art[artId]; }
+        StartCoroutine(SpriteFade(GetComponentInChildren<Image>(), 255,duration/4));
         
 
-        yield return new WaitForSeconds(5f);
-        StartCoroutine(SpriteFade(im, 0, duration / 3));
+        yield return new WaitForSeconds(duration/2);
+        StartCoroutine(SpriteFade(GetComponentInChildren<Image>(), 0, duration / 4));
 
         
     }
@@ -34,7 +36,7 @@ Image sr,
 float endValue,
 float duration)
     {
-        int multiplier;
+        
         
         if (endValue > 0) {
             sr.color = new Color(255, 255, 255, 0);

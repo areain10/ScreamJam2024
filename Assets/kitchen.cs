@@ -11,14 +11,17 @@ public class kitchen : MonoBehaviour
     playerHub hub;
     GameObject convWindow;
     int round;
+    int course;
     List<List<List<string>>> menu;
-    [SerializeField] GameObject platePrefab;
+    [SerializeField] public GameObject[] platePrefab;
     [SerializeField] plateSpawner plateSpawner;
     gameManager manager;
+    float courseChangeDuration;
 
     // Start is called before the first frame update
     void Start()
     {
+        courseChangeDuration = 10f;
         round = -1;
         menu = new List<List<List<String>>>();
         readMenu();
@@ -40,28 +43,10 @@ public class kitchen : MonoBehaviour
     {
         manager.resetlife();
         round++;
-        /*switch (round)
-        {
-            case 4:
-                StartCoroutine(manager.changeCourse(2));
-                yield return new WaitForSeconds(5);
-                break;
-            case 10:
-                StartCoroutine(manager.changeCourse(3));
-                yield return new WaitForSeconds(5);
-                break;
-            case 15:
-                StartCoroutine(manager.changeCourse(4));
-                yield return new WaitForSeconds(5);
-                break;
-            case 20:
-                //end game
-                break;
-            
-
-        }*/
+       
         switch (round)
         {
+<<<<<<< Updated upstream
             case 1:
                 StartCoroutine(manager.changeCourse(2,10));
                 yield return new WaitForSeconds(5);
@@ -73,6 +58,20 @@ public class kitchen : MonoBehaviour
             case 3:
                 StartCoroutine(manager.changeCourse(4, 5));
                 yield return new WaitForSeconds(5);
+=======
+            case 5:
+                course = 2;
+                yield return StartCoroutine(manager.changeCourse(course, courseChangeDuration));
+                break;
+            case 10:
+                course = 3;
+                yield return StartCoroutine(manager.changeCourse(course, courseChangeDuration));
+                break;
+            case 15:
+                course = 4;
+                //yield return StartCoroutine(manager.changeCourse(course, courseChangeDuration));
+                StartCoroutine(manager.gameCompleted());
+>>>>>>> Stashed changes
                 break;
             case 4:
                 StartCoroutine(manager.gameCompleted());
@@ -81,13 +80,15 @@ public class kitchen : MonoBehaviour
 
 
         }
+        hub.lostLifeThisRound = false;
         Debug.Log("Interact");
         hub.canMove(true);
         convWindow.SetActive(true);
         plateSpawner.spawnPlate(menu[round], round);
         //hub.setPlates(menu[round]);
-        interactable = false;
-        yield return null;
+        interactable = true;
+        yield return new WaitForSeconds(courseChangeDuration/5);
+        StartCoroutine(manager.courseSetup(course));
     }
     void checkForInteract()
     {
@@ -100,20 +101,26 @@ public class kitchen : MonoBehaviour
             }
             else 
             {
+                hub.lostLifeThisRound = true;
+                
+                
+                hub.resetPos(false);
                 List<List<string>> tmp = new List<List<string>>();
-                bool active = true;
+                //List<string> tmp2 = new List<string>();
                 for (int i = 0; i < hub.plates.Count; i++)
                 {
-                    
+                    List<string> tmp2 = new List<string>();
                     if (hub.plates[i].state == plateState.fallen)
                     {
                         
                         for (int k = 0; k < menu[round].Count; k++)
                         {
                             //Debug.Log(menu[round][k][1] + " " + hub.plates[i].id);
-                            if (menu[round][k][1] == hub.plates[i].id)
+                            if (menu[round][k][1] == hub.plates[i].id && !tmp2.Contains(menu[round][k][1]))
                             {
+                                //Debug.Log("Adding this plate: " + menu[round][k][1] + " " + tmp.Count);
                                 tmp.Add(menu[round][k]);
+                                tmp2.Add(menu[round][k][1]);
                             }
                         }
                         
@@ -121,7 +128,7 @@ public class kitchen : MonoBehaviour
                     }
                 }
                 convWindow.SetActive(true);
-                Debug.Log("Spawning " + tmp.Count + " plates");
+                //Debug.Log("Spawning " + tmp.Count + " plates, Hub has " + hub.plates.Count + " plates, Round "+round + ", With "+ menu[round].Count);
                 plateSpawner.spawnPlate(tmp, round);
             }
             

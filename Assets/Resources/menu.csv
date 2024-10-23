@@ -1,4 +1,5 @@
 Round,PlateID,Plate Name,Table,Customer Name,CustomerID,Customer Dialogue,Player Response
+<<<<<<< Updated upstream
 1,11,Eye Soup,3,Red The Imp,302,Finally; took you long enough!,Uggh this looks disgusting
 2,21,Foot Juice,1,Gorgort,104,Yes this is delicious,You're welcome?
 3,31,Dead Dog,2,Mr Pivot,203,...,...
@@ -16,3 +17,44 @@ Round,PlateID,Plate Name,Table,Customer Name,CustomerID,Customer Dialogue,Player
 10,101,Envy Eclairs,3,Skarn the Deceiver,304,So sweet; yet so bitter; like watching you rise while I fell.,I never wanted anyone to… I didn’t realize…
 10,102,Lament Lasagna,1,Azara the Forsaken,103,Every bite reminds me of what you didn’t say.,I didn’t know… I didn’t think it mattered.
 10,103,Deceitful Dumplings,2,Vesper the Bitter,202,Ahh; another lie revealed. Delicious!,Lies? I… I didn’t think they’d matter this much…
+=======
+1,11,ap1,8,Erinyes,804,Finally; took you long enough!,Uggh this looks disgusting
+2,12,ap2,3,Nixie,302,Yes this is delicious,You're welcome?
+3,13,ap3,7,Kali,703,...,...
+3,11,ap1,1,Pret,101,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
+4,11,ap1,4,Dullahan,403,They taste of all the things you never did for them.,I never thought… how can this be real?
+4,12,ap2,5,Ixion,505,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
+5,13,ap3,7,Charon,201,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
+5,12,ap2,6,Arke,601,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
+6,22,main2,2,Charon,201,Slippery like your false promises.,Is this… from someone I… hurt?
+7,23,main3,7,Kali,703,It’s so thick; just like your arrogance.,"Wait; my… arrogance? What’s going on here?"
+7,21,main1,6,Arke,601,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"
+8,22,main2,4,Dullahan,403,Ahh; the cold comfort of your guilt.,Guilt? Why is everything about… me?
+8,22,main2,8,Erinyes,804,Your judgments were sharp; but this burn is sharper.,What… are you talking about? What judgments?
+9,23,main3,1,Pret,101,Charred; like the futures you ruined.,I never meant for anyone to fail… how could this be?
+9,21,main1,5,Ixion,505,So sweet; yet so bitter; like watching you rise while I fell.,I never wanted anyone to… I didn’t realize…
+10,22,main2,3,Nixie,302,Every bite reminds me of what you didn’t say.,I didn’t know… I didn’t think it mattered.
+10,23,main3,8,Erinyes,804,Ahh; another lie revealed. Delicious!,Lies? I… I didn’t think they’d matter this much…
+10,22,main2,5,Ixion,505,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
+11,31,dess1,1,Pret,101,They taste of all the things you never did for them.,I never thought… how can this be real?
+12,32,dess2,4,Dullahan,403,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
+13,33,dess3,8,Erinyes,804,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
+13,32,dess2,6,Arke,601,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
+14,31,dess1,4,Charon,201,Slippery like your false promises.,Is this… from someone I… hurt?
+14,33,dess3,3,Nixie,302,It’s so thick; just like your arrogance.,"Wait, my… arrogance? What’s going on here?"
+15,41,ah1,7,Kali,703,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"
+15,42,ah2,5,Ixion,505,Ahh; the cold comfort of your guilt.,Guilt? Why is everything about… me?
+17,43,ah3,1,Pret,101,Your judgments were sharp; but this burn is sharper.,What… are you talking about? What judgments?
+17,43,ah3,5,Ixion,505,Charred; like the futures you ruined.,I never meant for anyone to fail… how could this be?
+18,42,ah2,3,Nixie,302,So sweet; yet so bitter; like watching you rise while I fell.,I never wanted anyone to… I didn’t realize…
+18,43,ah3,8,Erinyes,804,Every bite reminds me of what you didn’t say.,I didn’t know… I didn’t think it mattered.
+18,41,ah1,7,Kali,703,Ahh; another lie revealed. Delicious!,Lies? I… I didn’t think they’d matter this much…
+18,41,ah1,4,Dullahan,403,HA the flavor of betrayal; I almost missed this.,Wait… this is from… someone I knew?
+19,43,ah3,8,Charon,201,They taste of all the things you never did for them.,I never thought… how can this be real?
+19,42,ah2,6,Arke,601,This jello… every bounce; every twitch; it’s so satisfying.,Are those… faces? What did I do to deserve this?
+20,41,ah1,7,Kali,703,Mmm; it has that familiar taste of unspoken apologies.,Apologies? Is this from my life? What is happening here?
+20,41,ah1,4,Dullahan,403,This bitterness… the flavor of unsaid words; exquisite.,I swear I never thought it would come to this…
+20,43,ah3,6,Charon,201,Slippery like your false promises.,Is this… from someone I… hurt?
+20,42,ah2,6,Arke,601,It’s so thick; just like your arrogance.,"Wait, my… arrogance? What’s going on here?"
+20,42,ah2,1,Pret,101,The taste of heartbreak… so warm; yet so bitter.,"This can’t be real… right? I didn’t… do this, did I?"
+>>>>>>> Stashed changes

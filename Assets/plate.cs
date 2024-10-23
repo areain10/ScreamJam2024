@@ -41,7 +41,7 @@ public class plate : MonoBehaviour
     {
         state = plateState.fallen;
         hub.canMove(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         hub.canMove(true);
         yield return null;
     }

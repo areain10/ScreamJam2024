@@ -56,6 +56,7 @@ public class balancingInput : MonoBehaviour
         if(i == 0)
         {
             rb.constraints = RigidbodyConstraints2D.FreezePosition;
+            
         }
         else
         {
@@ -110,8 +111,10 @@ public class balancingInput : MonoBehaviour
     }
     public void resetRot(bool move)
     {
+        
         moveable = move;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        Debug.Log("Moveable:" + moveable);
     }
 
     public IEnumerator reverseIn(float duration)

@@ -6,11 +6,35 @@ using UnityEngine;
 
 public class tableManager : MonoBehaviour
 {
+
+    public Sprite[] sprites;
+    public List<Sprite> portraits;
     
+
     // Start is called before the first frame update
     void Start()
     {
         fillUpTable();
+    }
+    public List<Sprite> getPort() { return portraits; }
+    public List<Sprite>[] getSprite()
+    {
+        List<Sprite>[] mtList = new List<Sprite>[8];
+        List<Sprite> tmp;
+        for (int i = 0; i < 8;i++)
+        {
+            tmp = new List<Sprite>();
+            for (int j = 0; j < sprites.Length; j++)
+            {
+                //Debug.Log(sprites[j].name[0] + " " +((char)(i + 1)));
+                if (sprites[j].name[0].ToString() == (i + 1).ToString())
+                {
+                    tmp.Add(sprites[j]);
+                }
+            }
+            mtList[i] = tmp;
+        }
+        return mtList;
     }
 
     // Update is called once per frame

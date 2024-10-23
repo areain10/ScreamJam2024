@@ -269,8 +269,8 @@ Transform:
   m_LocalScale: {x: 0.58458, y: 0.58458, z: 0.58458}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2305781834425183134}
   - {fileID: 7087034469584229764}
+  - {fileID: 2305781834425183134}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7851901584489300430
@@ -288,7 +288,12 @@ MonoBehaviour:
   customerID: 
   nameText: {fileID: 5516731211716813132}
   dialogue: {fileID: 0}
+  idleanimDelay: 0.9
+  sprites:
+  - {fileID: 21300000, guid: fdd34d79c12883849b304cb47121ed95, type: 3}
   customerName: 
+  demonSprite: {fileID: 0}
+  demonImage: {fileID: 0}
 --- !u!70 &2828224275359051192
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -322,7 +327,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 1, y: 1.55}
   m_Direction: 0
 --- !u!58 &8080360054859482979
 CircleCollider2D:
@@ -385,7 +390,7 @@ MonoBehaviour:
   - {x: 0.5, y: -1.0000001, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 77330
+  m_InstanceId: 98850
   m_LocalBounds:
     m_Center: {x: 0.0000019073486, y: -0.00000017881393, z: 0}
     m_Extent: {x: 0.4999981, y: 0.99999994, z: 0}
@@ -400,7 +405,7 @@ GameObject:
   - component: {fileID: 7087034469584229764}
   - component: {fileID: 67596203640545080}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -462,7 +467,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 733e06643ab99ed4dadb5ee14af0c38b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2be12b352658e8d469fd4cbae2f29514, type: 3}
   m_Color: {r: 0.4056604, g: 0.36930403, b: 0.36930403, a: 1}
   m_FlipX: 0
   m_FlipY: 0

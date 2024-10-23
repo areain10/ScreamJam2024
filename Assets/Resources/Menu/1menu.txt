@@ -1,0 +1,17 @@
+appetizers: 
+bat wing bites
+eyeball and cheddar skewers
+severed cyst salad
+roasted toad belly
+
+main:
+meatloaf with a side of pickled fingers
+intestinal noodles in bone broth
+grilled whale lung with smashed potatoes
+clubfoot sandwich with a side of fries
+
+dessert: 
+double kidney chunk brownies
+tooth chip cookie with marrow ice cream
+slice of abdominal cake
+slice of slashed throat pie

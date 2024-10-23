@@ -22,8 +22,10 @@ public class deleter : MonoBehaviour
             
             StartCoroutine(camShake.Shake(0.3f,1));
             audio.Play(0);
+            StartCoroutine(manager.quiet(3f,0.1f));
             manager.loseLife();
             StartCoroutine(collision.gameObject.GetComponent<plate>().plateFallen());
+
         }
     }
     // Update is called once per frame

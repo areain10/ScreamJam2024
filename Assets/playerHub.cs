@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class playerHub : MonoBehaviour
 {
-    balancingInput balIn;
+    public balancingInput balIn;
     playerAnimation playerAnim;
     public List<plate> plates;
     Rigidbody2D rb;
     [SerializeField] AudioClip[] walking;
     [SerializeField] AudioClip[] balance;
+    public bool lostLifeThisRound = false;
     AudioSource source;
     private void Start()
     {
+
         rb = GetComponent<Rigidbody2D>();
         playerAnim = GetComponentInChildren<playerAnimation>();
-        balIn = GameObject.FindGameObjectWithTag("Tray").GetComponent<balancingInput>();
+        
+        
     }
     public void canMove(bool i)
     {
@@ -31,10 +34,22 @@ public class playerHub : MonoBehaviour
     }
     public void resetPos(bool move)
     {
-        if(balIn != null)
+        if(move)
         {
-            balIn.resetRot(move);
+            for (int i = 0; i < plates.Count; i++)
+            {
+                plates[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            }
         }
+        else
+        {
+            for (int i = 0; i < plates.Count; i++)
+            {
+                plates[i].GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+        }
+        balIn.resetRot(move);
+        
         
     }
     public void shakeTray(float power,float duration, float delay)
@@ -116,6 +131,25 @@ public class playerHub : MonoBehaviour
     public void reverseInput(float duration)
     {
         StartCoroutine(balIn.reverseIn(duration));
+    }
+    public void trayDissapear(bool visible)
+    {
+        if (visible) 
+        {
+            balIn.gameObject.transform.position = new Vector3(balIn.gameObject.transform.position.x, balIn.gameObject.transform.position.y, 8.5f);
+            for (int i = 0; i < plates.Count; i++)
+            {
+                plates[i].gameObject.transform.position = new Vector3(plates[i].gameObject.transform.position.x, plates[i].gameObject.transform.position.y, 5f);
+            }
+        }
+        else
+        {
+            balIn.gameObject.transform.position = new Vector3(balIn.gameObject.transform.position.x, balIn.gameObject.transform.position.y, -25.5f);
+            for (int i = 0; i < plates.Count; i++)
+            {
+                plates[i].gameObject.transform.position = new Vector3(plates[i].gameObject.transform.position.x, plates[i].gameObject.transform.position.y, -25f);
+            }
+        }
     }
 
 }
