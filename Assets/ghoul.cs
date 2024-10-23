@@ -53,7 +53,15 @@ public class ghoul : MonoBehaviour
             case ghoulState.invisible:
                 if (elapsedTime > timeInvis)
                 {
-                    StartCoroutine(spawnDespawn(true));
+                    int num;
+                    num = Random.Range(0, 2);
+                    if (num == 0)
+                    {
+                        num = -1;
+                    }
+                    gameObject.transform.position = new Vector2(playerTrans.position.x + (Random.Range(2f, 4f) * num), playerTrans.position.y + (Random.Range(2.5f, 5f) * num));
+
+                    //StartCoroutine(spawnDespawn(true));
                     state = ghoulState.spawning;
                     
                     elapsedTime = 0;
@@ -99,13 +107,7 @@ public class ghoul : MonoBehaviour
         }
         else
         {
-            int num;
-            num = Random.Range(0, 2);
-            if (num == 0)
-            {
-                num = -1;
-            }
-            gameObject.transform.position = new Vector2(playerTrans.position.x + (Random.Range(2f, 4f) * num), playerTrans.position.y + (Random.Range(2.5f, 5f) * num));
+            
             float a = GetComponent<SpriteRenderer>().color.a;
             Color tmp = GetComponent<SpriteRenderer>().color;
             while (GetComponent<SpriteRenderer>().color.a < 1)

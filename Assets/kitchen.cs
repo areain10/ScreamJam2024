@@ -22,8 +22,9 @@ public class kitchen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        course = 2;
         courseChangeDuration = 10f;
-        round = -1;
+        round = 9;
         menu = new List<List<List<String>>>();
         readMenu();
         interactable = false;
