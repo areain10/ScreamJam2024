@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -46,19 +47,6 @@ public class kitchen : MonoBehaviour
        
         switch (round)
         {
-<<<<<<< Updated upstream
-            case 1:
-                StartCoroutine(manager.changeCourse(2,10));
-                yield return new WaitForSeconds(5);
-                break;
-            case 2:
-                StartCoroutine(manager.changeCourse(3,5));
-                yield return new WaitForSeconds(5);
-                break;
-            case 3:
-                StartCoroutine(manager.changeCourse(4, 5));
-                yield return new WaitForSeconds(5);
-=======
             case 5:
                 course = 2;
                 yield return StartCoroutine(manager.changeCourse(course, courseChangeDuration));
@@ -71,12 +59,11 @@ public class kitchen : MonoBehaviour
                 course = 4;
                 //yield return StartCoroutine(manager.changeCourse(course, courseChangeDuration));
                 StartCoroutine(manager.gameCompleted());
->>>>>>> Stashed changes
                 break;
-            case 4:
+            case 20:
                 StartCoroutine(manager.gameCompleted());
-                //end game
                 break;
+
 
 
         }
