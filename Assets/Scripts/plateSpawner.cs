@@ -8,7 +8,7 @@ using UnityEngine;
 public class plateSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField]GameObject[] platePrefab;
+    [SerializeField] GameObject[] platePrefab;
     playerHub hub;
     string kitchDia;
     [SerializeField] TextMeshProUGUI textMeshProUGUI;
@@ -25,7 +25,7 @@ public class plateSpawner : MonoBehaviour
     IEnumerator spawnPlates(List<List<string>> data,int round)
     {
         hub.canMove(false);
-        hub.resetPos(false);
+        hub.resetPos(false);    
         hub.plates.Clear();
         
         for (int i = 0 ; i < data.Count; i++)

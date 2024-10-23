@@ -42,11 +42,13 @@ public class kitchen : MonoBehaviour
     }
     IEnumerator spawnPlate()
     {
+
         manager.resetlife();
         round++;
-       
+        
         switch (round)
         {
+            
             case 5:
                 course = 2;
                 yield return StartCoroutine(manager.changeCourse(course, courseChangeDuration));
@@ -157,12 +159,24 @@ public class kitchen : MonoBehaviour
             var data = dataLines[i].Split(',');
             
             string[] dia= { "", "" };
+            Debug.Log("Data 0 :" + data[0]);
             tmp = data.ToList<string>();
-            if (int.Parse(data[0]) != roundCounter)
+            
+
+            if (data[0] != roundCounter.ToString() )
             {
-                roundCounter = Convert.ToInt32(data[0])-1;
+                int tmp3;
+                if (int.TryParse(data[0], out tmp3))
+                    print(tmp3); // 
+                else
+                {
+                    print("Invalid input - Conversion failed");
+                }
+                roundCounter = Convert.ToInt32(data[0]) - 1;
                 menu.Add(new List<List<string>>());
             }
+            
+            
 
 
             //var go = Instantiate(platePrefab, gameObject.transform.position, gameObject.transform.rotation);

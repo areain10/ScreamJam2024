@@ -83,15 +83,23 @@ public class tables : MonoBehaviour
             }
             for (int j = 0; j < portraits.Count; j++)
             {
-                Debug.Log(portraits.Count + " " + customerIDs.Count);
-                if (portraits[j].name == customerIDs[i])
+                //Debug.Log(portraits.Count + " " + customerIDs.Count);
+                try
                 {
-                    Debug.Log(portraits[j].name + " " + customerIDs[i]);
-                    go.GetComponent<customer>().setPortrait(portraits[j]);
-                    go.GetComponent<customer>().demonSprite = portraits[j];
+                    if (portraits[j].name == customerIDs[i])
+                    {
+                        Debug.Log(portraits[j].name + " " + customerIDs[i]);
+                        go.GetComponent<customer>().setPortrait(portraits[j]);
+                        go.GetComponent<customer>().demonSprite = portraits[j];
 
+
+                    }
+                }
+                catch
+                {
 
                 }
+                
             }
             //Debug.Log(i + " " + phSprites[i].name + " " + go.GetComponent<customer>().sprites[0].name);
             if (!found)
