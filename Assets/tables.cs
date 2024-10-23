@@ -65,13 +65,21 @@ public class tables : MonoBehaviour
             }
             bool found = false;
             for (int j = 0; j < interactableSprites.Length; j++)
-            {    
-                if (interactableSprites[j][0].name.Substring(0, 3) == customerIDs[i])
+            {
+                try
                 {
+                    if (interactableSprites[j][0].name.Substring(0, 3) == customerIDs[0])
+                    {
 
-                    go.GetComponent<customer>().sprites = interactableSprites[j];
-                    found = true;
+                        go.GetComponent<customer>().sprites = interactableSprites[j];
+                        found = true;
+                    }
                 }
+                catch
+                {
+                    Debug.Log("Interactable "+ interactableSprites[0].Count);
+                }
+                
             }
             for (int j = 0; j < portraits.Count; j++)
             {
