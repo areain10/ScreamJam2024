@@ -83,7 +83,7 @@ public class tables : MonoBehaviour
             }
             for (int j = 0; j < portraits.Count; j++)
             {
-                
+                Debug.Log(portraits.Count + " " + customerIDs.Count);
                 if (portraits[j].name == customerIDs[i])
                 {
                     Debug.Log(portraits[j].name + " " + customerIDs[i]);

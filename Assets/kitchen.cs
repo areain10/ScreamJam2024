@@ -158,7 +158,7 @@ public class kitchen : MonoBehaviour
             
             string[] dia= { "", "" };
             tmp = data.ToList<string>();
-            if (Convert.ToInt32(data[0]) != roundCounter)
+            if (int.Parse(data[0]) != roundCounter)
             {
                 roundCounter = Convert.ToInt32(data[0])-1;
                 menu.Add(new List<List<string>>());
